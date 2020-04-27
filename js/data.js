@@ -37,31 +37,20 @@ const months = ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Gegužė', 'Birželis
                 for(let x=0; x<data.length; x++) {
                     if(data[x].month === look) {
                         replace.push(data[x]);
+                        break;
                     }
                 }
             }
             data = replace;
             if (data[i].month = i+1 ) {
-                
-             
-            }
-            
-               // const 
-                // after = data[i].month;
-                // console.log(data[after].income);
-                // console.log(data[3].income);
-                // break;
-            
-
-            
-            
+            }  
             
             HTML += `<div class="table-row">
                         <div class="cell">${data[i].month}</div>
                         <div class="cell">${months[ data[i].month-1 ]}</div>
                         <div class="cell">${data[i].income}</div>
                         <div class="cell">${data[i].expense}</div>
-                        <div class="cell">150.00 Eur</div>
+                        <div class="cell">${data[i].income - data[i].expense}</div>
                     </div>`;
         }
         tables.innerHTML = HTML;
