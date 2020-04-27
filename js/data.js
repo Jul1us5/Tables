@@ -21,7 +21,6 @@ const months = ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Gegužė', 'Birželis
 
     console.log(account);
     function getData(month, data) {
-        // console.log(months, account);
         for(let i=0; i<month.length; i++) {
             
             if(!data[i].income ) {
