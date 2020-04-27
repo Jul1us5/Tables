@@ -23,19 +23,28 @@ const months = ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Gegužė', 'Birželis
     function getData(month, data) {
         // console.log(months, account);
         for(let i=0; i<month.length; i++) {
-            if(!data[i].income && !data[i].expense ) {
-                data[i].income = '+++';
-                data[i].expense = '---';
-
+            if(!data[i].income ) {
+                data[i].income = 0;
+            } else if (!data[i].expense ) {
+                data[i].expense = 0;
             } 
-            
-            // console.log(data[i].month);
-            
+                
+            if(data[i].month = i +1) {
+                // console.log(data[i].month);
+                // after = data[i].month;
+                // data[after].income;
+                // data[i].income
+                // break;
+            }
+                // console.log(after);
 
+            
+            
+            
             HTML += `<div class="table-row">
-                        <div class="cell">${i + 1}</div>
+                        <div class="cell">${i}</div>
                         <div class="cell">${month[i]}</div>
-                        <div class="cell">${data[i].income}</div>
+                        <div class="cell">${data[3].income}</div>
                         <div class="cell">${data[i].expense}</div>
                         <div class="cell">150.00 Eur</div>
                     </div>`;
