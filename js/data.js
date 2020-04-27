@@ -29,7 +29,7 @@ const months = ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Gegužė', 'Birželis
                 data[i].expense = 0;
             } 
                 
-            if(data[i].month = i +1) {
+            if(data[i].month = i+1) {
                 // console.log(data[i].month);
                 // after = data[i].month;
                 // data[after].income;
@@ -42,7 +42,7 @@ const months = ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Gegužė', 'Birželis
             
             
             HTML += `<div class="table-row">
-                        <div class="cell">${i}</div>
+                        <div class="cell">${i+1}</div>
                         <div class="cell">${month[i]}</div>
                         <div class="cell">${data[3].income}</div>
                         <div class="cell">${data[i].expense}</div>
