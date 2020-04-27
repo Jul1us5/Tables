@@ -13,4 +13,25 @@ const account = [
     { month: 12, expense: 200 }
 ];
 
-const months = ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Gegužė', 'Birželis', 'Liepa', 'Rugpjutis', 'Rugsėjis', '	Spalis', 'Lapkritis', 'Gruodis'];
+const months = ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Gegužė', 'Birželis', 'Liepa', 'Rugpjutis', 'Rugsėjis', 'Spalis', 'Lapkritis', 'Gruodis'];
+
+    let tables = document.querySelector('.table-content');
+    let HTML = '';
+    let after = '';
+
+
+    function getData(month, data) {
+        // console.log(months, account);
+        for(let i=0; i<month.length; i++) {
+            HTML += `<div class="table-row">
+                        <div class="cell">${i + 1}</div>
+                        <div class="cell">${month[i]}</div>
+                        <div class="cell">150.00 Eur</div>
+                        <div class="cell">-</div>
+                        <div class="cell">150.00 Eur</div>
+                    </div>`;
+        }
+        tables.innerHTML = HTML;
+    }
+
+    getData(months, account)
