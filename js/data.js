@@ -69,9 +69,7 @@ function renderData(month, data) {
             minCost_Month = data[i].income;
             minCost.innerHTML = months[i];       
         }
-       
-        
-          
+             
         if (data[i].expense > maxCost_Month && data[i].expense !== 0 ) {
             maxCost_Month = data[i].income;
             maxCost.innerHTML = months[i];       
