@@ -16,6 +16,18 @@ const account = [
 const months = ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Gegužė', 'Birželis', 'Liepa', 'Rugpjutis', 'Rugsėjis', 'Spalis', 'Lapkritis', 'Gruodis'];
 
 let tables = document.querySelector('.table-content');
+let revenue = document.getElementById('revenue');
+let cost = document.getElementById('cost');
+let balance = document.getElementById('balance');
+
+let minCost = document.getElementById('minCost');
+let maxCost = document.getElementById('maxCost');
+let minRevenue = document.getElementById('minRevenue');
+let maxRevenue = document.getElementById('maxRevenue');
+
+let revenueGet = 0;
+let costGet = 0;
+let balanceGet = 0;
 let HTML = '';
 
 function renderData(month, data) {
@@ -44,9 +56,17 @@ function renderData(month, data) {
                     <div class="cell">${data[i].expense} Eur</div>
                     <div class="cell">${data[i].income - data[i].expense} Eur</div>
                 </div>`;
+                revenueGet += data[i].income;
+                costGet += data[i].expense;
+                balanceGet = revenueGet - costGet;
     }
+
+
         tables.innerHTML = HTML;
-        
+
+        revenue.innerHTML = revenueGet + ' Eur';
+        cost.innerHTML = costGet + ' Eur';
+        balance.innerHTML = balanceGet + ' Eur';
     
 }
 
