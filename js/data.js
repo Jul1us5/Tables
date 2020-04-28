@@ -15,44 +15,39 @@ const account = [
 
 const months = ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Gegužė', 'Birželis', 'Liepa', 'Rugpjutis', 'Rugsėjis', 'Spalis', 'Lapkritis', 'Gruodis'];
 
-    let tables = document.querySelector('.table-content');
-    let HTML = '';
-    let after = '';
+let tables = document.querySelector('.table-content');
+let HTML = '';
 
-    console.log(account);
-    function getData(month, data) {
-        for(let i=0; i<month.length; i++) {
-            
-            if(!data[i].income ) {
-                data[i].income = 0;
-            } else if (!data[i].expense ) {
-                data[i].expense = 0;
-            } 
+function renderData(month, data) {
 
-            const replace = [];
-
-            for(let i=0; i<data.length; i++) {
-                let look = i+1;
-                for(let x=0; x<data.length; x++) {
-                    if(data[x].month === look) {
-                        replace.push(data[x]);
-                        break;
-                    }
-                }
+    const noun = [];
+    for(let i=0; i<data.length; i++) {
+        for(let x=0; x<data.length; x++) {
+            if(data[x].month === i+1) {
+                noun.push(data[x]);
             }
-            data = replace;
-            // if (data[i].month = i+1 ) {
-            // }  
-            
-            HTML += `<div class="table-row">
-                        <div class="cell">${data[i].month}</div>
-                        <div class="cell">${months[ data[i].month-1 ]}</div>
-                        <div class="cell">${data[i].income}</div>
-                        <div class="cell">${data[i].expense}</div>
-                        <div class="cell">${data[i].income - data[i].expense}</div>
-                    </div>`;
         }
-        tables.innerHTML = HTML;
     }
+    data = noun;
+    
+    for(let i=0; i<data.length; i++) {
+        if (!data[i].income) {
+            data[i].income = 0;
+        }
+        if (!data[i].expense) {
+            data[i].expense = 0;
+        }
+        HTML += `<div class="table-row">
+                    <div class="cell">${i+1}</div>
+                    <div class="cell">${month[i]}</div>
+                    <div class="cell">${data[i].income} Eur</div>
+                    <div class="cell">${data[i].expense} Eur</div>
+                    <div class="cell">${data[i].income - data[i].expense} Eur</div>
+                </div>`;
+    }
+        tables.innerHTML = HTML;
+        
+    
+}
 
-    getData(months, account)
+renderData(months, account);
