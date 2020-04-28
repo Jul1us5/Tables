@@ -41,8 +41,8 @@ const months = ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Gegužė', 'Birželis
                 }
             }
             data = replace;
-            if (data[i].month = i+1 ) {
-            }  
+            // if (data[i].month = i+1 ) {
+            // }  
             
             HTML += `<div class="table-row">
                         <div class="cell">${data[i].month}</div>
