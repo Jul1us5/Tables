@@ -25,10 +25,11 @@ let maxCost = document.getElementById('maxCost');
 let minRevenue = document.getElementById('minRevenue');
 let maxRevenue = document.getElementById('maxRevenue');
 
-let minCost_Month = '';
-let maxCost_Month = '';
+let minCost_Month = Infinity;
+let maxCost_Month = 0;
 let minRevenue_Month = '';
 let maxRevenue_Month = '';
+let now = '';
 
 let revenueGet = 0;
 let costGet = 0;
@@ -64,15 +65,20 @@ function renderData(month, data) {
 
        
  
-
-    
+        if (data[i].income < minCost_Month && data[i].income !== 0 ) {
+            minCost_Month = data[i].income;
+            minCost.innerHTML = months[i];       
+        }
        
         
           
+        if (data[i].expense > maxCost_Month && data[i].expense !== 0 ) {
+            maxCost_Month = data[i].income;
+            maxCost.innerHTML = months[i];       
+        }  
         
         
-        
-        console.log();
+    
 
         HTML += `<div class="table-row">
                     <div class="cell">${i+1}</div>
@@ -83,7 +89,7 @@ function renderData(month, data) {
                 </div>`;
 
     }
-
+        
 
         tables.innerHTML = HTML;
 
@@ -91,8 +97,7 @@ function renderData(month, data) {
         cost.innerHTML = costGet + ' Eur';
         balance.innerHTML = balanceGet + ' Eur';
 
-        minCost.innerHTML = minCost_Month;
-        maxCost.innerHTML = maxCost_Month;
+        // maxCost.innerHTML = maxCost_Month;
         minRevenue.innerHTML = minRevenue_Month;
         maxRevenue.innerHTML = maxRevenue_Month;
     
