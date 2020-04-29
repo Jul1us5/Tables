@@ -27,8 +27,8 @@ let maxRevenue = document.getElementById('maxRevenue');
 
 let minCost_Month = Infinity;
 let maxCost_Month = 0;
-let minRevenue_Month = '';
-let maxRevenue_Month = '';
+let minRevenue_Month = Infinity;
+let maxRevenue_Month = 0;
 let now = '';
 
 let revenueGet = 0;
@@ -70,11 +70,23 @@ function renderData(month, data) {
             minCost.innerHTML = months[i];       
         }
              
-        if (data[i].expense > maxCost_Month && data[i].expense !== 0 ) {
+        if (data[i].income > maxCost_Month && data[i].income !== 0 ) {
             maxCost_Month = data[i].income;
             maxCost.innerHTML = months[i];       
-        }  
+        } 
+
         
+        if (data[i].expense < minRevenue_Month && data[i].expense !== 0 ) {
+            minRevenue_Month = data[i].expense;
+            minRevenue.innerHTML = months[i];       
+        }
+             
+        if (data[i].expense > maxRevenue_Month && data[i].expense !== 0 ) {
+            maxRevenue_Month = data[i].expense;
+            maxRevenue.innerHTML = months[i];       
+        }
+        // minRevenue.innerHTML = minRevenue_Month;
+        // maxRevenue.innerHTML = maxRevenue_Month;
         
     
 
@@ -94,11 +106,6 @@ function renderData(month, data) {
         revenue.innerHTML = revenueGet + ' Eur';
         cost.innerHTML = costGet + ' Eur';
         balance.innerHTML = balanceGet + ' Eur';
-
-        // maxCost.innerHTML = maxCost_Month;
-        minRevenue.innerHTML = minRevenue_Month;
-        maxRevenue.innerHTML = maxRevenue_Month;
-    
 }
 
 renderData(months, account);
